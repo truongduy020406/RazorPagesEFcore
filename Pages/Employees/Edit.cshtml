@@ -1,0 +1,43 @@
+﻿@page "{id:Guid}"
+@model ASPNET_QL.Pages.Employees.EditModel
+@{
+    var messsage = ViewData["message"]?.ToString();
+}
+<form method="post">
+    <h1 class="mb-3">Edit Employee</h1>
+    @if (!String.IsNullOrWhiteSpace(messsage))
+    {
+            <div class="alert alert-success" role="alert">
+            @messsage
+            </div>
+    }
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control"asp-for="EditEmployeeViewModels.Id"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control"asp-for="EditEmployeeViewModels.Name"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control"asp-for="EditEmployeeViewModels.Email"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Salary</label>
+        <input type="number" class="form-control"asp-for="EditEmployeeViewModels.Salary"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">date of birht</label>
+        <input type="date" class="form-control" asp-for="EditEmployeeViewModels.DateofBirth"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Department</label>
+        <input type="text" class="form-control" asp-for="EditEmployeeViewModels.Department"/>
+    </div>
+
+    <div class="mb-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary" asp-page-handler="Update">Update</button>
+        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Delete</button>
+    </div>
+</form>
